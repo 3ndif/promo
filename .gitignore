@@ -1,3 +1,7 @@
+/nbproject
+
 /vendor
-composer.json
-something.else
+composer.phar
+node_modules
+/vagrant
+/frontend/web/dist
