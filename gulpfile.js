@@ -5,6 +5,8 @@
  */
 
 var gulp = require('gulp'),
+    sass = require('gulp-sass'),
+    concat = require('gulp-concat'),
     clean = require('gulp-clean'),
     babel = require('gulp-babel'),
     react = require('babel-preset-react'),
@@ -23,14 +25,19 @@ var paths = {
     src: { //Пути откуда брать исходники        
         jsx: 'frontend/web/js/react-components/**/*.jsx',
         js: 'frontend/web/js/**/*.js',
+        scss: 'frontend/web/css/importer.scss',
+        main_scss: 'frontend/web/css/**/*.+(scss|css)'
     },
     
     build: { //Тут мы укажем куда складывать готовые после сборки файлы        
         jsx: 'frontend/web/dist/js',
         js: 'frontend/web/dist/js',
+        scss: 'frontend/web/dist/css',
+        main_scss: 'frontend/web/dist',
     },    
     watch: { //Тут мы укажем, за изменением каких файлов мы хотим наблюдать
         jsx: 'frontend/web/js/react-components/**/*.jsx',
+        scss: 'frontend/web/scss/*.+(scss|css)',        
     },
     clean: 'frontend/web/dist/'
 };
@@ -42,6 +49,30 @@ var exclude_ext = function(path, ext) { return path.substr(0, path.indexOf('.'+e
 var fname = function(path_to_file){    
     return path_to_file.replace(/^.*[\\\/]/, '');
 };
+
+//var SCSSfiles = ['web/css/**/*.scss', '!web/css/reset.scss', '!web/css/all.scss'];
+//var resetCSS = ['web/css/reset.scss'];
+//var allCSS = ['web/css/all.scss'];
+//var resetFirst = resetCSS.concat(allCSS);
+//var concatFiles = resetFirst.concat(SCSSfiles);
+
+gulp.task('sass:production', function () {
+  return gulp.src(paths.src.main_scss)
+  .pipe(concat('main.scss'))
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest(paths.build.main_scss));
+});
+
+gulp.task('sass:dev', function () {
+  return gulp.src(paths.src.scss)
+  .pipe(concat('main.scss'))
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest(paths.build.scss));
+});
+ 
+gulp.task('sass:watch', function () {
+  gulp.watch(paths.src.main_scss, ['sass:production']);
+});
 
 
 /**

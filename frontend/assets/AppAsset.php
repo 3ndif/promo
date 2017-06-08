@@ -12,9 +12,7 @@ class AppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'css/site.css',
-        'css/custom.css',
-        'css/categories.css',
+        'dist/css/main.css',
     ];
     public $js = [
 //        'https://unpkg.com/react@15/dist/react.min.js',

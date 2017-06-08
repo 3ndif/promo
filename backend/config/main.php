@@ -38,13 +38,13 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-            'view' => [
-                'theme' => [
-                    'pathMap' => [
-                       '@app/views' => '@app/views/themes/admin-lte'
-                    ],
+        'view' => [
+            'theme' => [
+                'pathMap' => [
+                   '@app/views' => '@app/views/themes/admin-lte'
                 ],
             ],
+        ],
 
         'urlManager' => [
             'enablePrettyUrl' => true,

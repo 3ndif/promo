@@ -1,16 +1,66 @@
-html,
-body {
+html {
     height: 100%;
 }
 
 body {
+    height: 100%;
     padding-top: 2em;
     padding-left: 2em;
     padding-right: 2em;
-}
-
-h1 {
-    font: 2em Verdana,Arial,Tahoma;    
+    
+    h1 {
+        font: 2em Verdana,Arial,Tahoma;
+    }
+    
+    a {
+        color: #0a82a8;
+        cursor: pointer;
+    }
+    
+    .a-like {
+        @extend a;
+        &:hover{
+            text-decoration: underline;
+            outline: none;
+        }
+    }
+    
+    .href {
+        @extend a;
+    }
+    
+    .wrap {
+        min-height: 100%;
+        height: auto;
+        margin: 0 auto -60px;
+        padding: 0 0 60px;
+        
+        > .container {
+            padding: 70px 15px 20px;
+        }
+    }
+    
+    .footer {
+        height: 60px;
+        background-color: #f5f5f5;
+        border-top: 1px solid #ddd;
+        padding-top: 20px;
+    }
+    
+    .jumbotron {
+        text-align: center;
+        background-color: transparent;
+        
+        .btn {
+            font-size: 21px;
+            padding: 14px 24px;
+        }
+    }
+    
+    .not-set {
+        color: #c55;
+        font-style: italic;
+    }
 }
 
 /*input[type="text"]{*/
@@ -27,50 +77,6 @@ h1 {
     vertical-align: middle;
     color: #555;*/
 /*}*/
-
-.a-like:hover {
-    text-decoration: underline;
-
-    outline: none;
-}
-
-.a-like, .href, a {
-    color: #0a82a8;
-    cursor: pointer;
-}
-
-.wrap {
-    min-height: 100%;
-    height: auto;
-    margin: 0 auto -60px;
-    padding: 0 0 60px;
-}
-
-.wrap > .container {
-    padding: 70px 15px 20px;
-}
-
-.footer {
-    height: 60px;
-    background-color: #f5f5f5;
-    border-top: 1px solid #ddd;
-    padding-top: 20px;
-}
-
-.jumbotron {
-    text-align: center;
-    background-color: transparent;
-}
-
-.jumbotron .btn {
-    font-size: 21px;
-    padding: 14px 24px;
-}
-
-.not-set {
-    color: #c55;
-    font-style: italic;
-}
 
 /* add sorting icons to gridview sort links */
 a.asc:after, a.desc:after {

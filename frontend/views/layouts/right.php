@@ -1,6 +1,6 @@
 
 <div class="aside-right">
-    <a href="/new-obiavo"><button class="btn-change">Подать объявление</button></a>
+    <a href="/new-promo"><button class="btn-change">Подать объявление</button></a>
 
     <div class="hr-black"></div>
 

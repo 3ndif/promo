@@ -1,0 +1,257 @@
+.ib-container{
+	position: relative;
+	width: 800px;
+	margin: 30px auto;
+	display: block;
+        &:before, &:after {
+            content:"";
+            display:table;
+        }
+        
+        &:after {
+            clear:both;
+        }
+        
+        %transition {
+            -webkit-transition: 
+		opacity 0.2s linear, 
+		text-shadow 0.5s ease-in-out, 
+		color 0.5s ease-in-out;
+            -moz-transition: 
+                    opacity 0.2s linear, 
+                    text-shadow 0.5s ease-in-out, 
+                    color 0.5s ease-in-out;
+            -o-transition: 
+                    opacity 0.2s linear, 
+                    text-shadow 0.5s ease-in-out, 
+                    color 0.5s ease-in-out;
+            -ms-transition: 
+                    opacity 0.2s linear, 
+                    text-shadow 0.5s ease-in-out, 
+                    color 0.5s ease-in-out;
+            transition: 
+                    opacity 0.2s linear, 
+                    text-shadow 0.5s ease-in-out, 
+                    color 0.5s ease-in-out;
+        }
+        
+        h3 {
+            a {
+                font-size: 16px;
+                font-weight: 400;
+                color: #000;
+                color: rgba(0, 0, 0, 1);
+                text-shadow: 0px 0px 0px rgba(0, 0, 0, 1);
+                opacity: 0.8;
+                @extend %transition;
+            }
+        }
+        
+        article {
+            overflow: hidden;
+            display: block;
+            position: relative;
+            width: 140px;
+            height: 220px;
+            background: #fff;            
+            cursor: pointer;
+            float: left;
+            border: 10px solid #fff;
+            text-align: left;
+            text-transform: none;
+            margin: 15px;
+            /*z-index: 1;*/
+            -webkit-backface-visibility: hidden;
+            box-shadow: 
+                    0px 0px 0px 10px rgba(255,255,255,1), 
+                    1px 1px 3px 10px rgba(0,0,0,0.2);
+            -webkit-transition: 
+                    opacity 0.4s linear, 
+                    -webkit-transform 0.4s ease-in-out, 
+                    box-shadow 0.4s ease-in-out;
+            -moz-transition: 
+                    opacity 0.4s linear, 
+                    -moz-transform 0.4s ease-in-out, 
+                    box-shadow 0.4s ease-in-out;
+            -o-transition: 
+                    opacity 0.4s linear, 
+                    -o-transform 0.4s ease-in-out, 
+                    box-shadow 0.4s ease-in-out;
+            -ms-transition: 
+                    opacity 0.4s linear, 
+                    -ms-transform 0.4s ease-in-out, 
+                    box-shadow 0.4s ease-in-out;
+            transition: 
+                    opacity 0.4s linear, 
+                    transform 0.4s ease-in-out, 
+                    box-shadow 0.4s ease-in-out;
+            
+            &:before {
+                content:"";
+                display:block;
+                position:absolute; 
+                height: 200px; width: 100%;
+                bottom: 0; left: 0;
+                background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #fff 100%)
+            }
+            &:hover {
+                overflow: visible;
+            }
+            
+            header {
+                span {
+                    font: {
+                        size: 10px;
+                        family: "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif;
+                    }                    
+                    padding: 10px 0;
+                    display: block;
+                    color: #FFD252;
+                    color: rgba(255, 210, 82, 1);
+                    text-shadow: 0px 0px 0px rgba(255, 210, 82, 1);
+                    text-transform: uppercase;
+                    opacity: 0.8;
+                    @extend %transition;
+                }
+            }
+            
+            p {
+                font: {
+                    family: Verdana, sans-serif;
+                    size: 10px;
+                    line-height: 13px;
+                    color: #333;
+                    color: rgba(51, 51, 51, 1);
+                    text-shadow: 0px 0px 0px rgba(51, 51, 51, 1);
+                    opacity: 0.8;
+                    @extend %transition;
+                }
+            }
+            
+            &.blur {
+                box-shadow: 0px 0px 20px 10px rgba(255,255,255,1);
+                -webkit-transform: scale(0.9);
+                -moz-transform: scale(0.9);
+                -o-transform: scale(0.9);
+                -ms-transform: scale(0.9);
+                transform: scale(0.9);
+                opacity: 0.9;
+                
+                h3 a {
+                    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.9);
+                    color: rgba(0, 0, 0, 0.5);
+                    opacity: 0.5;
+                }
+                
+                header span{
+                    text-shadow: 0px 0px 10px rgba(255, 210, 82, 0.9);
+                    color: rgba(255, 210, 82, 0);
+                    opacity: 0.5;
+                }
+                
+                p{
+                    text-shadow: 0px 0px 10px rgba(51, 51, 51, 0.9);
+                    color: rgba(51, 51, 51, 0.5);
+                    opacity: 0.5;
+                }
+            }
+            
+            > div {
+                //в Firefox блоги категорий дергаются изза этого
+                
+                // плавный вывод блоков при z-index                
+                /*height:100%;*/                
+                -webkit-transition: all .1s ease-in-out;
+                -moz-transition: all .1s ease-in-out;
+                -o-transition: all .1s ease-in-out;
+                -ms-transition: all .1s ease-in-out;
+                transition: all .1s ease-in-out;                
+                
+                // решение это проблемы (не помогло)
+                // данная проблема решилась изменения значени scale с 1.05 до 1 у элемента div.active
+                
+                /*-webkit-backface-visibility: hidden;*/
+                /*-moz-backface-visibility:    hidden;*/
+                /*-ms-backface-visibility:     hidden;*/
+                &.active {
+                    background: #fff;
+                    position: absolute;
+                    -webkit-transform: scale(1);
+                    -moz-transform: scale(1);
+                    -o-transform: scale(1);
+                    -ms-transform: scale(1);
+                    transform: scale(1);
+                    box-shadow: 
+                            0px 0px 0px 10px rgba(255,255,255,1), 
+                            1px 4px 15px 10px rgba(0,0,0,0.4);
+                    z-index: 100;	
+                    opacity: 1;                     
+                    width: 250px;
+                    /*height: 250px;*/
+                    left: -50%;
+                    top: -10%;
+                    
+                    .category-list {
+                        list-style: none;
+                        padding: 0;
+                        
+                        li {
+                            font-family: "Trebuchet MS", "Lucida Sans";
+                            border-bottom: 1px solid #efefef;
+                            overflow: hidden;
+                            padding: 1px 30px;
+                            font-size: 15px;                            
+                            &:first-child {
+                                font-weight: bold;
+                                padding: 1px 0 10px 15px;
+                                margin-bottom: 10px;
+                                border-bottom: 1px solid rgba(0,0,0, .2);
+                                border-bottom-left-radius: 10px;
+                                border-bottom-right-radius: 10px;
+                                color: #679bb7;
+                                font-size: 18px;
+                                box-shadow: 0 10px 20px -5px rgba(0,0,0, .2);
+                                
+                                a {
+                                    text-decoration: none;
+                                }
+                            }
+                            &:first-child:before {
+                                content: "\2749";
+                                margin-right: 10px;
+                            }
+                            
+                            a {                                
+                                width: 75%;
+                                color: #7C7D7F;
+                            }                                                        
+                        }                                                
+                    }
+                }
+                
+                .category-list {                   
+                    background: white;
+                    list-style-type: circle;
+                    list-style-position: inside;
+                    padding: 0 0;
+                    margin: 0;
+                    
+                    li {
+                        font-family: "Trebuchet MS", "Lucida Sans";
+                        border-bottom: 1px solid #efefef;
+                        padding: 3px 0;
+                        &:hover a {color: #c93961;}
+                        &:first-child {
+                            list-style: none;
+                            background: #e8edff;
+                        }
+                    }
+                    
+                    a {
+                        text-decoration: none;
+                        color: #555;
+                    }
+                }
+            }
+        }       
+}

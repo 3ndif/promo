@@ -20,6 +20,7 @@ $items = [
             'panel-title' => 'Основныe данные',
             'attributes' => [
                 ['name' => 'techname','type' => Form::INPUT_TEXT,'label' => 'Название','model'=>$category],
+                ['name' => 'active','type' => Form::INPUT_CHECKBOX_INACTIVE,'label'=>'активность','model' => $category],
                 [
                     'name' => 'placements',
                     'type' => Form::MULTISELECT,
